@@ -7,57 +7,57 @@ use WabondPro\WabondClient\Traits\Sendable;
 
 class WabondMessageButton implements Messagable
 {
-  use Sendable;
+    use Sendable;
 
-  protected $type = 'interactive';
+    protected $type = 'interactive';
 
-  protected $data = [
+    protected $data = [
     'contentText' => '',
     'footerText' => '',
     'headerType' => 1,
     'buttons' => [],
   ];
 
-  public function __construct($secret)
-  {
-    $this->secret = $secret;
-  }
+    public function __construct($secret)
+    {
+        $this->secret = $secret;
+    }
 
-  public function addButton($id, $text)
-  {
-    $this->data['buttons'][] = ['buttonId' => $id, 'buttonText' => ['displayText' => $text], 'type' => 1];
+    public function addButton($id, $text)
+    {
+        $this->data['buttons'][] = ['buttonId' => $id, 'buttonText' => ['displayText' => $text], 'type' => 1];
 
-    return $this;
-  }
+        return $this;
+    }
 
-  public function setFooter($text)
-  {
-    $this->data['footerText'] = $text;
+    public function setFooter($text)
+    {
+        $this->data['footerText'] = $text;
 
-    return $this;
-  }
+        return $this;
+    }
 
-  public function setContent($text)
-  {
-    $this->data['contentText'] = $text;
+    public function setContent($text)
+    {
+        $this->data['contentText'] = $text;
 
-    return $this;
-  }
+        return $this;
+    }
 
-  public function build()
-  {
-    return $this->data;
-  }
+    public function build()
+    {
+        return $this->data;
+    }
 
-  public function setHeaderType($type)
-  {
-    $this->data['headerType'] = $type;
+    public function setHeaderType($type)
+    {
+        $this->data['headerType'] = $type;
 
-    return $this;
-  }
+        return $this;
+    }
 
-  public function buildPayload()
-  {
-    return ['interactive' => $this->data];
-  }
+    public function buildPayload()
+    {
+        return ['interactive' => $this->data];
+    }
 }
