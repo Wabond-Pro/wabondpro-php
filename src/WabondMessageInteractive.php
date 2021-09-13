@@ -5,36 +5,36 @@ use WabondPro\WabondClient\Interfaces\Messagable;
 
 use WabondPro\WabondClient\Traits\Sendable;
 
-
 class WabondMessageInteractive implements Messagable
 {
-  use Sendable;
-  protected $type = 'interactive';
-  protected $interactiveType = '';
-  protected $buttons = [];
+    use Sendable;
+    protected $type = 'interactive';
+    protected $interactiveType = '';
+    protected $buttons = [];
 
-  public function __construct($secret)
-  {
-    $this->secret = $secret;
-  }
+    public function __construct($secret)
+    {
+        $this->secret = $secret;
+    }
 
-  public function buttons($fn)
-  {
-    $this->interactiveType = 'buttons';
-    $this->buttons = $fn(new ButtonsMessageBuilder())->build();
-    return $this;
-  }
+    public function buttons($fn)
+    {
+        $this->interactiveType = 'buttons';
+        $this->buttons = $fn(new ButtonsMessageBuilder())->build();
 
-  public function setHeaders()
-  {
-    return $this;
-  }
+        return $this;
+    }
 
-  public function buildPayload()
-  {
-    return [
+    public function setHeaders()
+    {
+        return $this;
+    }
+
+    public function buildPayload()
+    {
+        return [
       'type' => $this->type,
 
     ];
-  }
+    }
 }

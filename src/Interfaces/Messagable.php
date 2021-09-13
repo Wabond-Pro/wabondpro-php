@@ -4,5 +4,5 @@ namespace WabondPro\WabondClient\Interfaces;
 
 interface Messagable
 {
-  public function buildPayload();
+    public function buildPayload();
 }

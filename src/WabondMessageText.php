@@ -7,31 +7,32 @@ use WabondPro\WabondClient\Traits\Sendable;
 
 class WabondMessageText implements Messagable
 {
-  use Sendable;
-  protected $message;
-  protected $withPreviewUrl = false;
-  protected $type = 'text';
+    use Sendable;
+    protected $message;
+    protected $withPreviewUrl = false;
+    protected $type = 'text';
 
+    public function __construct($secret)
+    {
+        $this->secret = $secret;
+    }
 
-  public function __construct($secret)
-  {
-    $this->secret = $secret;
-  }
+    public function setBody($message)
+    {
+        $this->message = $message;
 
-  public function setBody($message)
-  {
-    $this->message = $message;
-    return $this;
-  }
+        return $this;
+    }
 
-  public function withPreviewUrl()
-  {
-    $this->withPreviewUrl = true;
-    return $this;
-  }
+    public function withPreviewUrl()
+    {
+        $this->withPreviewUrl = true;
 
-  public function buildPayload()
-  {
-    return ['data' => $this->message];
-  }
+        return $this;
+    }
+
+    public function buildPayload()
+    {
+        return ['data' => $this->message];
+    }
 }

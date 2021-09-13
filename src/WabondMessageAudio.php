@@ -7,14 +7,15 @@ use WabondPro\WabondClient\Traits\Sendable;
 
 class WabondMessageAudio implements Messagable
 {
-  use Sendable;
+    use Sendable;
 
-  public function __construct($secret)
-  {
-    $this->secret = $secret;
-  }
-  public function buildPayload()
-  {
-    return [];
-  }
+    public function __construct($secret)
+    {
+        $this->secret = $secret;
+    }
+
+    public function buildPayload()
+    {
+        return [];
+    }
 }

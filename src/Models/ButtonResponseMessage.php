@@ -1,25 +1,24 @@
 <?php
 
-
 namespace WabondPro\WabondClient\Models;
 
 class ButtonResponseMessage
 {
-  private $selectedButtonId;
-  private $repliedMessageId;
+    private $selectedButtonId;
+    private $repliedMessageId;
 
-  public function __construct($data)
-  {
-    $this->selectedButtonId = $data['selectedButtonId'];
-  }
+    public function __construct($data)
+    {
+        $this->selectedButtonId = $data['selectedButtonId'];
+    }
 
-  public function getSelectedButton()
-  {
-    return $this->selectedButtonId;
-  }
+    public function getSelectedButton()
+    {
+        return $this->selectedButtonId;
+    }
 
-  public function getRepliedMessageId()
-  {
-    return $this->repliedMessageId;
-  }
+    public function getRepliedMessageId()
+    {
+        return $this->repliedMessageId;
+    }
 }

@@ -2,26 +2,24 @@
 
 namespace WabondPro\WabondClient;
 
-use WabondPro\WabondClient\WabondMessage;
-use WabondPro\WabondClient\WabondWebhook;
-
 class WabondClient
 {
-  protected $secret;
-  public function __construct($secret)
-  {
-    $this->secret = $secret;
-  }
+    protected $secret;
 
-  public function messages()
-  {
-    return new WabondMessage($this->secret);
-  }
+    public function __construct($secret)
+    {
+        $this->secret = $secret;
+    }
 
-  public function listen()
-  {
-    return new WabondWebhook();
-  }
+    public function messages()
+    {
+        return new WabondMessage($this->secret);
+    }
+
+    public function listen()
+    {
+        return new WabondWebhook();
+    }
 }
 
 // (new WabondClient('et'))->listen()

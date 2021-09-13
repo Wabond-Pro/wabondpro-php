@@ -6,25 +6,26 @@ use GuzzleHttp\Client;
 
 trait Sendable
 {
-  protected $to;
-  protected $secret;
+    protected $to;
+    protected $secret;
 
-  public function setTo($to)
-  {
-    $this->to = $to;
-    return $this;
-  }
+    public function setTo($to)
+    {
+        $this->to = $to;
 
-  public function send()
-  {
-    if (!$this->to) {
-      throw new \Exception('No Destination set');
+        return $this;
     }
 
-    $response = (new Client())->post('https://foo.bar/api', ['json' => array_merge([
+    public function send()
+    {
+        if (! $this->to) {
+            throw new \Exception('No Destination set');
+        }
+
+        $response = (new Client())->post('https://foo.bar/api', ['json' => array_merge([
       'to' => $this->to,
       'secret' => $this->secret,
       'type' => $this->type,
     ], $this->buildPayload())]);
-  }
+    }
 }
