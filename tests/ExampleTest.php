@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace WabondPro\Tests;
 
 use PHPUnit\Framework\TestCase;
 

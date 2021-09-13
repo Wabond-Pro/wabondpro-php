@@ -1,21 +1,23 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "wabondpro/wabondpro-php",
+    "description": "Client Wrapper for Wabond Pro",
     "keywords": [
-        ":vendor_name",
-        "package_slug"
+        "WabondPro",
+        "wabondpro",
+        "wabond-client"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/wabondpro/wabondpro-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "ricardosawir",
+            "email": "sawir.ricardo@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^7.1||^8.0",
+        "guzzlehttp/guzzle": "^7.3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -25,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "WabondPro\\WabondClient\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "WabondPro\\WabondClient\\Tests\\": "tests"
         }
     },
     "scripts": {
