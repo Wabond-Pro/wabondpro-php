@@ -9,7 +9,11 @@ class WabondMessageButton implements Messagable
 {
     use Sendable;
 
+<<<<<<< HEAD
     protected $type = 'interactive';
+=======
+  protected $type = 'interactive:button';
+>>>>>>> 284c05a (changed type to be more precise)
 
     protected $data = [
     'contentText' => '',
